@@ -1,0 +1,125 @@
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700');
+
+$header-height: 400px;
+
+* {
+    box-sizing: border-box;
+}
+
+.nav-item {
+    flex: 1;
+    display: block;
+    padding: 0.5rem;
+    background: lightblue;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 2px solid orange;
+    display: flex;
+    height: floor($header-height / 2);
+    align-items: center;
+
+    .products {
+        background-color: darken(lightgreen, 20%);
+        flex: 2;
+    }
+
+    .contact {
+        background-color: lightcoral;
+    }
+}
+
+header {
+    height: $header-height;
+    border: 1px solid red;
+
+    nav a {
+        @extend .nav-item;
+
+        &:hover {
+            zoom: 1.25;
+        }
+    }
+}
+
+footer nav a {
+    @extend .nav-item;
+    font-size: 1rem;
+}
+
+
+
+p {
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+aside {
+    border: 2px solid blue;
+    width: 200px;
+    float: right;
+    padding: 0 30px;
+    background: yellow;
+}
+
+header h1 {
+    margin-top: 0;
+    font-family: "Lobster", Arial, Helvetica, sans-serif;
+}
+
+main {
+    position: relative;
+    width: 50%;
+    margin: auto;
+}
+
+body {
+    background-color: darkturquoise;
+    margin: 0;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    padding: 3em;
+}
+
+.highlight {
+    color: teal;
+}
+
+
+.image-with-caption {
+    position: relative;
+
+    img {
+        width: 100%;
+        border-radius: 20% 40%;
+    }
+
+    div {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+
+        p {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+    }
+
+}
