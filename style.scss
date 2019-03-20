@@ -1,125 +1,153 @@
 @import "normalize.css";
-@import url('https://fonts.googleapis.com/css?family=Lobster');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700');
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
 $header-height: 400px;
 
+@keyframes example {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(200px, 0);
+  }
+  100% {
+    transform: translate(200px, 200px);
+  }
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .nav-item {
-    flex: 1;
-    display: block;
-    padding: 0.5rem;
-    background: lightblue;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-decoration: none;
-    text-align: center;
+  flex: 1;
+  display: block;
+  padding: 0.5rem;
+  background: lightblue;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
 nav {
-    width: 100%;
-    margin-bottom: 2rem;
-    border: 2px solid orange;
-    display: flex;
-    height: floor($header-height / 2);
-    align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 2px solid orange;
+  display: flex;
+  height: floor($header-height / 2);
+  align-items: center;
+  background-image: radial-gradient(circle at 50% 0, red, yellow, white);
 
-    .products {
-        background-color: darken(lightgreen, 20%);
-        flex: 2;
-    }
+  .products {
+    background-color: darken(lightgreen, 20%);
+    flex: 2;
+  }
 
-    .contact {
-        background-color: lightcoral;
-    }
+  .contact {
+    background-color: lightcoral;
+  }
 }
 
 header {
-    height: $header-height;
-    border: 1px solid red;
+  height: $header-height;
+  border: 1px solid red;
 
-    nav a {
-        @extend .nav-item;
+  nav a {
+    @extend .nav-item;
+    transition: transform 1s ease-in-out, opacity 0.5s;
 
-        &:hover {
-            zoom: 1.25;
-        }
+    &:hover {
+      transform: scale(1.25);
+      opacity: 0.5;
     }
+  }
 }
 
 footer nav a {
-    @extend .nav-item;
-    font-size: 1rem;
+  @extend .nav-item;
+  font-size: 1rem;
 }
 
-
-
 p {
-    font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
 }
 
 aside {
-    border: 2px solid blue;
-    width: 200px;
-    float: right;
-    padding: 0 30px;
-    background: yellow;
+  border: 2px solid blue;
+  width: 200px;
+  float: right;
+  padding: 0 30px;
+  background: yellow;
 }
 
 header h1 {
-    margin-top: 0;
-    font-family: "Lobster", Arial, Helvetica, sans-serif;
+  margin-top: 0;
+  font-family: "Lobster", Arial, Helvetica, sans-serif;
 }
 
 main {
-    position: relative;
-    width: 50%;
-    margin: auto;
+  position: relative;
+  width: 50%;
+  margin: auto;
 }
 
 body {
-    background-color: darkturquoise;
-    margin: 0;
+  background-color: darkturquoise;
+  margin: 0;
 }
 
 #wrapper {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 700px;
-    background: white;
-    padding: 3em;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 3em;
 }
 
 .highlight {
-    color: teal;
+  color: teal;
+  text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
 }
 
-
 .image-with-caption {
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  animation: example 2s forwards;
 
-    img {
-        width: 100%;
-        border-radius: 20% 40%;
-    }
-
+  &:hover {
     div {
-        position: absolute;
-        bottom: 30px;
-        width: 100%;
-        text-align: center;
-
-        p {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-        }
+      transform: translateY(0);
+      opacity: 1;
     }
+  }
 
+  img {
+    width: 100%;
+    border-radius: 10px 20px 40px 80px;
+    box-shadow: 8px 8px 5px red;
+    // transform: translate(-200px, 100px) rotate(30deg);
+  }
+
+  div {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(200px);
+    transition: transform 1s, opacity 1s 0.5s;
+    opacity: 0;
+
+    p {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+  }
 }
